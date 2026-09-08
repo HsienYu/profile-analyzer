@@ -1,0 +1,10 @@
+profile-hound
+Copyright (c) 2026 HsienYu
+
+Originally inspired by public OSINT tooling patterns. This repository is an
+independent fork/derivative maintained by HsienYu.
+
+Upstream clone history may reference https://github.com/socalit/profile-hound
+
+Optional integration:
+  social-analyzer (AGPL-3.0) by QeeqBox — invoked as an external package only.

@@ -1,31 +1,32 @@
 #!/bin/bash
+set -u
 
-echo "[*] Installing profile-hound dependencies..."
+echo "[*] profile-hound installer (uv preferred)"
 
-# Ensure Python3 and pip are installed
-if ! command -v python3 &>/dev/null; then
-    echo "[!] Python3 is not installed. Aborting."
-    exit 1
+if command -v uv >/dev/null 2>&1; then
+  uv venv .venv
+  # shellcheck disable=SC1091
+  source .venv/bin/activate
+  uv pip install -r requirements.txt
+else
+  echo "[!] uv not found; falling back to python3 -m venv"
+  python3 -m venv .venv
+  # shellcheck disable=SC1091
+  source .venv/bin/activate
+  python -m pip install -U pip
+  pip install -r requirements.txt
 fi
 
-if ! command -v pip3 &>/dev/null; then
-    echo "[!] pip3 is not installed. Installing it..."
-    sudo apt update && sudo apt install -y python3-pip
+read -r -p "[?] Install full stack (pytest, playwright, social-analyzer)? [y/N]: " full
+if [[ "${full:-}" =~ ^[Yy]$ ]]; then
+  if command -v uv >/dev/null 2>&1; then
+    uv pip install -r requirements-full.txt
+  else
+    pip install -r requirements-full.txt
+  fi
+  python -m playwright install chromium || true
 fi
 
-# Install base requirements
-pip3 install --user -r requirements.txt
-
-# Ask if user wants full headless browser support
-read -p "[?] Install headless browser support (Selenium + Playwright)? [y/N]: " browser_support
-if [[ "$browser_support" =~ ^[Yy]$ ]]; then
-    echo "[*] Installing full browser automation stack..."
-    pip3 install --user -r requirements-full.txt
-    echo "[*] Installing Playwright browsers..."
-    python3 -m playwright install
-fi
-
-# Create results directory
 mkdir -p results
-
-echo "[+] profile-hound is installed. Run it with: python3 profile_hound.py --help"
+echo "[+] Done. Activate with: source .venv/bin/activate"
+echo "[+] Run: python profile_hound.py --help"

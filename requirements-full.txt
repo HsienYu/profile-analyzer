@@ -5,3 +5,4 @@ rich
 colorama
 pytest
 black
+social-analyzer

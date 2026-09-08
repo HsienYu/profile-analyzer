@@ -11,7 +11,7 @@ import requests
 
 from modules.utils import search_google
 
-USER_AGENT = "profile-hound/2.0 (+https://github.com/HsienYu/profile-hound)"
+USER_AGENT = "profile-analyzer/2.0 (+https://github.com/HsienYu/profile-analyzer)"
 DEFAULT_SITES_PATH = Path(__file__).resolve().parent.parent / "data" / "sites.json"
 
 
@@ -73,7 +73,7 @@ def run_username_scan(
                 detail = {**detail, "category": category}
             results[name] = detail
 
-    if include_google and os.environ.get("PROFILE_HOUND_SKIP_GOOGLE") != "1":
+    if include_google and os.environ.get("PROFILE_ANALYZER_SKIP_GOOGLE", os.environ.get("PROFILE_HOUND_SKIP_GOOGLE")) != "1":
         google_sites = {
             "LinkedIn": f"site:linkedin.com/in {username}",
             "Facebook": f"site:facebook.com {username}",

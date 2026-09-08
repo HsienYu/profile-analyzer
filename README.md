@@ -1,6 +1,6 @@
-# profile-hound
+# profile-analyzer
 
-`profile-hound` is a modular Python CLI OSINT tool for authorized recon: usernames,
+`profile-analyzer` is a modular Python CLI OSINT tool for authorized recon: usernames,
 emails, phones, free breach checks, and profile-link enrichment.
 
 Maintained by [HsienYu](https://github.com/HsienYu).
@@ -21,8 +21,8 @@ Maintained by [HsienYu](https://github.com/HsienYu).
 ## Setup (uv)
 
 ```bash
-git clone https://github.com/HsienYu/profile-hound.git
-cd profile-hound
+git clone https://github.com/HsienYu/profile-analyzer.git
+cd profile-analyzer
 uv venv .venv
 source .venv/bin/activate
 uv pip install -r requirements-full.txt
@@ -36,16 +36,16 @@ python -m playwright install chromium
 
 ```bash
 # Built-in username scanner
-python profile_hound.py --username johndoe --no-google --output pretty
+python profile_analyzer.py --username johndoe --no-google --output pretty
 
 # Username + social-analyzer (requires social-analyzer package)
-python profile_hound.py --username johndoe --social-analyzer --sa-top 50 --no-google
+python profile_analyzer.py --username johndoe --social-analyzer --sa-top 50 --no-google
 
 # Email breach + link enrichment
-python profile_hound.py --email someone@example.com --output pretty
+python profile_analyzer.py --email someone@example.com --output pretty
 
 # Combined
-python profile_hound.py --username johndoe --email someone@example.com --all --social-analyzer --no-google
+python profile_analyzer.py --username johndoe --email someone@example.com --all --social-analyzer --no-google
 ```
 
 ---

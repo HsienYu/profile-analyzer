@@ -16,7 +16,7 @@ from urllib.parse import parse_qs, quote, unquote, urlparse
 import requests
 from bs4 import BeautifulSoup
 
-USER_AGENT = "profile-hound/2.0 (+https://github.com/HsienYu/profile-hound)"
+USER_AGENT = "profile-analyzer/2.0 (+https://github.com/HsienYu/profile-analyzer)"
 SOCIAL_HOST_FRAGMENTS = (
     "github.com",
     "gitlab.com",

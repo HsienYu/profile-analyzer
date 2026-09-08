@@ -1,6 +1,6 @@
 """Unit tests for profile_hound.pretty_print error and breach display."""
 
-from profile_hound import pretty_print
+from profile_analyzer import pretty_print
 
 
 def test_pretty_print_shows_email_error(capsys):

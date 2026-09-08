@@ -5,7 +5,7 @@ import requests
 
 XPOSEDORNOT_URL = "https://api.xposedornot.com/v1/check-email/{email}"
 HIBP_URL = "https://haveibeenpwned.com/api/v3/breachedaccount/{email}?truncateResponse=false"
-USER_AGENT = "profile-hound"
+USER_AGENT = "profile-analyzer"
 
 
 def run_email_scan(email):

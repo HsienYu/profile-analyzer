@@ -1,7 +1,7 @@
 #!/bin/bash
 set -u
 
-echo "[*] profile-hound installer (uv preferred)"
+echo "[*] profile-analyzer installer (uv preferred)"
 
 if command -v uv >/dev/null 2>&1; then
   uv venv .venv
@@ -29,4 +29,4 @@ fi
 
 mkdir -p results
 echo "[+] Done. Activate with: source .venv/bin/activate"
-echo "[+] Run: python profile_hound.py --help"
+echo "[+] Run: python profile_analyzer.py --help"

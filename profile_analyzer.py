@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# profile_hound.py
+# profile_analyzer.py
 import argparse
 import json
 import os
@@ -132,7 +132,7 @@ def pretty_print(data):
 
 def main():
     parser = argparse.ArgumentParser(
-        description="profile-hound: OSINT profiler for usernames, phones, and emails"
+        description="profile-analyzer: OSINT profiler for usernames, phones, and emails"
     )
     parser.add_argument("--username", help="Username to scan")
     parser.add_argument("--email", help="Email address to scan")

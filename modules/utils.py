@@ -8,7 +8,7 @@ def search_google(query, max_links=5):
     Returns a list of clean links (e.g., LinkedIn, Facebook).
     """
     headers = {
-        "User-Agent": "Mozilla/5.0 (compatible; profile-hound/1.0; +https://github.com/socalit/profile-hound)"
+        "User-Agent": "Mozilla/5.0 (compatible; profile-analyzer/1.0; +https://github.com/socalit/profile-hound)"
     }
 
     try:

@@ -1,6 +1,6 @@
 """Pretty-print coverage for email link enrichment."""
 
-from profile_hound import pretty_print
+from profile_analyzer import pretty_print
 
 
 def test_pretty_print_links_section(capsys):

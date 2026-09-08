@@ -36,7 +36,7 @@ def test_run_social_analyzer_timeout():
 
 
 def test_pretty_print_social_analyzer(capsys):
-    from profile_hound import pretty_print
+    from profile_analyzer import pretty_print
 
     pretty_print(
         {
